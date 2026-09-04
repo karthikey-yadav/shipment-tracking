@@ -26,11 +26,11 @@ Orchestrated daily by Airflow DAG: extract_raw >> transform_and_validate >> load
 
 **DAG triggered and running:**
 
-![DAG triggered](screenshots/dag-triggered.png)
+![DAG triggered](dag-triggered.png)
 
 **Run history — all three tasks completing successfully end-to-end:**
 
-![DAG run history](screenshots/dag-run-history.png)
+![DAG run history](dag-run-history.png)
 
 *(The two earlier failed runs visible in the history were caused by a
 Docker networking issue — see "A real bug I hit and fixed" below.)*
