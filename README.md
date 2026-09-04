@@ -4,9 +4,9 @@ A logistics data pipeline that simulates shipment tracking events, cleans and
 validates them, models them into a star schema, and loads them into Postgres
 for analytics — orchestrated end-to-end with Apache Airflow.
 
-Built to learn (and demonstrate) core data engineering concepts hands-on:
-batch ingestion, data quality validation, partitioning, columnar storage,
-dimensional modeling, idempotent loads, and pipeline orchestration.
+Built to demonstrate core data engineering concepts hands-on: batch ingestion,
+data quality validation, partitioning, columnar storage, dimensional
+modeling, idempotent loads, and pipeline orchestration.
 
 ## Architecture
 
@@ -22,14 +22,13 @@ analytics_queries.sql   -->  SQL analysis                    [Serving]
 Orchestrated daily by Airflow DAG: extract_raw >> transform_and_validate >> load_to_warehouse
 ```
 
-## Pipeline running in Airflow
+## Screenshots
 
-The DAG triggered manually, running all three tasks in sequence:
+**DAG triggered and running:**
 
 ![DAG triggered](screenshots/dag-triggered.png)
 
-Run history showing all three tasks (`extract_raw`, `transform_and_validate`,
-`load_to_warehouse`) completing successfully end-to-end:
+**Run history — all three tasks completing successfully end-to-end:**
 
 ![DAG run history](screenshots/dag-run-history.png)
 
@@ -94,9 +93,3 @@ Docker Compose service name, resolvable via Docker's internal DNS) for the
 Airflow container specifically. This is a common environment-parity issue in
 real pipelines — code that works on a laptop can fail once it runs inside an
 orchestrator with a different network context.
-
-## Mapping to XPO's domain
-
-This is deliberately shaped like a freight/logistics tracking system (hubs,
-delivery partners, delayed shipments) — the same category of data a logistics
-company like XPO deals with day to day.
